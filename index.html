@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Antidote — Video File Repair</title>
+<meta name="description" content="Antidote rebuilds corrupted video files — MP4, MOV, MXF and more — after a dead battery, a pulled card, a locked-up camera or a broken offload. Free diagnosis with a fixed quote for your clip; you pay, the repair runs on your computer, the clip is yours.">
+<meta name="theme-color" content="#0A1113">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head" id="siteHead">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="Antidote — home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect x="1" y="1" width="30" height="30" rx="7" class="bm-frame"/>
+        <rect x="16" y="6" width="10" height="20" rx="2" class="bm-solid"/>
+        <rect x="6.5" y="6" width="7" height="5" rx="1.5" class="bm-blk bm-b1"/>
+        <rect x="8.5" y="13" width="7" height="5" rx="1.5" class="bm-blk bm-b2"/>
+        <rect x="5" y="20" width="7" height="6" rx="1.5" class="bm-blk bm-b3"/>
+      </svg>
+      <span class="brand-word">Antidote</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#failures">Failures</a>
+      <a href="#process">Process</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#team">Team</a>
+      <a href="#coverage">Formats</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="head-actions">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch to light theme" title="Switch theme">
+        <svg viewBox="0 0 24 24" class="ic-moon" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2Z"/></svg>
+        <svg viewBox="0 0 24 24" class="ic-sun" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm" href="#diagnose">Diagnose my file</a>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="top">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow reveal">Video file repair · Free diagnosis · Fixed quote</p>
+      <h1 class="reveal d1">Your footage isn't gone.<br><em>It's just unreadable.</em></h1>
+      <p class="lede reveal d2">Antidote rebuilds corrupted <strong>video files</strong> &mdash; after a dead battery, a pulled card, a locked-up camera or a broken offload. An engineer looks at your file, tells you exactly what survived and exactly what it costs, and you decide from there.</p>
+      <div class="hero-cta reveal d3">
+        <a class="btn btn-primary" href="#diagnose">Diagnose my file</a>
+        <a class="btn btn-ghost" href="#process">See how it works</a>
+      </div>
+      <p class="hero-lock reveal d4">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10.5" width="16" height="11" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><circle cx="12" cy="16" r="1.3"/></svg>
+        <span><b>Your file never leaves your computer.</b> The repair runs on your own machine, on the original file. Nothing is uploaded.</span>
+      </p>
+      <p class="hero-note mono reveal d4">macOS · Windows · Linux</p>
+    </div>
+
+    <figure class="scope reveal d2">
+      <div class="scope-chrome">
+        <button class="scope-play" id="scopePlay" type="button" aria-label="Pause the clip">
+          <svg class="ic-pause" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="3" height="9" rx="1"/><rect x="7" y="1.5" width="3" height="9" rx="1"/></svg>
+          <svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.6 10.2 6 3 10.4Z"/></svg>
+        </button>
+        <span class="rec" aria-hidden="true"></span>
+        <span class="mono scope-file">A001_09021422_C042.MOV</span>
+        <span class="mono scope-meta">3840×2160 · 24p · 10-bit</span>
+      </div>
+
+      <div class="scope-stage" id="scopeStage">
+        <canvas id="frameClean" width="640" height="360" aria-hidden="true"></canvas>
+        <div class="scope-damaged" id="damagedWrap">
+          <canvas id="frameBroken" width="640" height="360" aria-hidden="true"></canvas>
+        </div>
+        <div class="scope-divider" id="scopeDivider" aria-hidden="true">
+          <span class="scope-knob"><svg viewBox="0 0 24 24"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg></span>
+        </div>
+        <span class="tag tag-damage mono">CORRUPTED</span>
+        <span class="tag tag-clean mono">REPAIRED</span>
+        <input class="scope-range" id="scopeRange" type="range" min="2" max="98" value="50" step="0.1"
+               aria-label="Reveal the repaired frame">
+      </div>
+
+      <figcaption class="scope-foot mono">
+        <span id="tc">00:14:22:07</span>
+        <span class="scope-hint">drag to repair</span>
+        <span>moov atom: <b class="bad">missing</b></span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <ul class="assure reveal">
+      <li class="assure-key"><b>Never leaves your computer</b><span>Repaired on your own disk, from the original file. No upload, no copy of your clip anywhere but with you.</span></li>
+      <li><b>Free diagnosis</b><span>You pay nothing to find out whether it can be saved.</span></li>
+      <li><b>Answer in minutes</b><span>Forty-eight hours is our outside limit, not our normal.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════ FAILURES ═══════════ -->
+<section class="sec" id="failures">
+  <div class="wrap">
+    <div class="sec-head sec-head-split reveal">
+      <div class="sec-head-copy">
+        <p class="eyebrow">Failure modes</p>
+        <h2>Most of the ways a video file dies</h2>
+        <p class="sec-sub">Almost every camera and recorder writes the index for a clip at the very end of the take. Anything that stops the recording before that moment leaves every frame on the card and no map to find them by. That is almost every &ldquo;dead&rdquo; file we see.</p>
+      </div>
+      <figure class="photo photo-side">
+        <img src="assets/img/desk-camera.jpg" width="1200" height="896" alt="A compact cinema camera in a cage with an SSD strapped to it, a memory card and a drained battery on a wooden table under a desk lamp" loading="lazy">
+        <figcaption class="mono">The usual suspects: a camera, a strapped-on SSD, one battery that didn't make it to the end of the take.</figcaption>
+      </figure>
+    </div>
+
+    <div class="fail-grid">
+      <article class="fail reveal"><span class="fail-n mono">01</span><h3>Battery died mid-take</h3><p>The classic. The camera goes dark, the clip never gets its index, and your editor reports the file as unreadable.</p></article>
+      <article class="fail reveal"><span class="fail-n mono">02</span><h3>Card or SSD pulled</h3><p>A USB-C SSD cable knocked out, a card ejected a second early. The frames are on the media; the file was never closed.</p></article>
+      <article class="fail reveal"><span class="fail-n mono">03</span><h3>Camera locked up</h3><p>A firmware freeze at the end of a take, a hard power-cycle, and a half-written container nothing will open.</p></article>
+      <article class="fail reveal"><span class="fail-n mono">04</span><h3>Media couldn't keep up</h3><p>A card too slow for the bitrate you chose. Dropped-frame warnings, and a clip where some frames were only partly written.</p></article>
+      <article class="fail reveal"><span class="fail-n mono">05</span><h3>Card formatted</h3><p>Format is a paperwork change, not an erase. Until a new take overwrites it, the footage is still physically there.</p></article>
+      <article class="fail reveal"><span class="fail-n mono">06</span><h3>Offload interrupted</h3><p>A copy that stopped halfway leaves a file of the right size that plays absolutely nothing.</p></article>
+      <article class="fail reveal"><span class="fail-n mono">07</span><h3>Plays, then stops</h3><p>The clip opens, runs for a few seconds and freezes or goes black. The index only covers part of what was recorded.</p></article>
+      <article class="fail reveal"><span class="fail-n mono">08</span><h3>0&nbsp;KB or &ldquo;media offline&rdquo;</h3><p>The file system lost its pointer to the data. The data itself usually hasn't gone anywhere.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROCESS ═══════════ -->
+<section class="sec sec-alt" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The process</p>
+      <h2>Four steps, and you know the price before the third</h2>
+      <p class="sec-sub">This is the whole service. There is no stage where you hand over your footage and hope, and no stage where you pay for a maybe.</p>
+    </div>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="step-n mono">01</span>
+        <div class="step-body">
+          <h3>Scan</h3>
+          <p>Open the broken file in Antidote. It reads the raw bytes, finds every frame that made it onto the card, and shows you what it found — how many seconds survived, at what resolution and codec. Nothing has left your computer at this point.</p>
+        </div>
+      </li>
+      <li class="step reveal">
+        <span class="step-n mono">02</span>
+        <div class="step-body">
+          <h3>Diagnose</h3>
+          <p>Send a sample of about two megabytes. An engineer — not a script — works out what the camera was doing at the moment it stopped, confirms what is recoverable, and sends back a fixed quote for that clip. Free, usually within minutes. Forty-eight hours at the very outside.</p>
+        </div>
+      </li>
+      <li class="step reveal">
+        <span class="step-n mono">03</span>
+        <div class="step-body">
+          <h3>Pay</h3>
+          <p>If the quote works for you, we send an invoice for exactly that amount — no subscription, no diagnosis fee, nothing added later. <b>From&nbsp;$49.</b> In the rare case the repair doesn't work out — about one job in a hundred — you get a full refund.</p>
+        </div>
+      </li>
+      <li class="step reveal">
+        <span class="step-n mono">04</span>
+        <div class="step-body">
+          <h3>Release</h3>
+          <p>Once it's paid, the repair — built for your camera and your specific failure — runs on your own machine, against your original file, and the repaired clip lands on your disk, ready for your editor. The engine that drives it stays on our side; your footage stays on yours.</p>
+        </div>
+      </li>
+    </ol>
+
+  </div>
+</section>
+
+<!-- ═══════════ PRIVACY ═══════════ -->
+<section class="sec" id="privacy">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Confidentiality</p>
+      <h2>Your file never leaves your computer.</h2>
+      <p class="sec-sub">Most repair services ask you to upload the clip and trust them with it. Antidote is built the other way round: the repair happens on your machine, against the original file on your own disk. The engine that knows how to do it lives on our servers, and the two talk in instructions and structure — never in pictures.</p>
+    </div>
+
+    <div class="wire reveal" role="img" aria-label="Diagram: your computer holds the original clip, every frame and the repair; our servers hold the engine and an engineer. Instructions, structure and a small diagnosis sample cross between them; the clip itself never does.">
+      <div class="wire-side">
+        <h4 class="mono">Your computer</h4>
+        <ul>
+          <li>The original clip</li>
+          <li>Every frame of your footage</li>
+          <li>The repair, running locally</li>
+          <li>The repaired clip, back on your disk</li>
+        </ul>
+      </div>
+      <div class="wire-link" aria-hidden="true">
+        <span class="wire-flow"><i>⇄</i>instructions &amp; structure</span>
+        <span class="wire-flow"><i>→</i>a ~2 MB diagnosis sample, deleted after</span>
+        <span class="wire-flow wire-blocked"><i>✕</i>the clip itself — never</span>
+      </div>
+      <div class="wire-side">
+        <h4 class="mono">Our servers</h4>
+        <ul>
+          <li>The repair engine</li>
+          <li>What we know about how each camera fails</li>
+          <li>An engineer, reading the sample</li>
+          <li>No copy of your clip. Ever.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TODO: confirm the sample-retention line matches your actual policy before launch. -->
+    <ul class="privacy-list reveal">
+      <li><b>Nothing to upload</b><span>A long 4K take is tens of gigabytes. It stays where it is.</span></li>
+      <li><b>Nothing of yours to leak</b><span>We never hold a copy of your clip, so there is nothing to lose, breach or subpoena.</span></li>
+      <li><b>Sample deleted</b><span>The small diagnosis sample is removed when the job closes.</span></li>
+      <li><b>NDA on request</b><span>For productions that need one signed before a single byte moves.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════ TEAM ═══════════ -->
+<!-- TODO: the one-line role descriptions are ours to edit — adjust to taste. -->
+<section class="sec sec-alt" id="team">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The team</p>
+      <h2>Two people, and you will deal with both</h2>
+      <p class="sec-sub">There is no support tier here and no ticket robot. The person who reads your sample is the person who writes back, and the person who wrote the repair engine is one message away from them.</p>
+    </div>
+
+    <figure class="photo photo-wide reveal">
+      <img src="assets/img/night-desk.jpg" width="1264" height="848" alt="A desk at night with two monitors showing video scopes and a hex dump, a cinema camera, a card reader, cables and a half-eaten sandwich" loading="lazy">
+      <figcaption class="mono">Where the queue gets worked. Usually at about this hour.</figcaption>
+    </figure>
+
+    <div class="team-grid">
+      <article class="member reveal">
+        <span class="member-mark mono" aria-hidden="true">E</span>
+        <div class="member-body">
+          <h3>Edvard</h3>
+          <p class="member-role mono">Software Engineer</p>
+          <p class="member-line">Writes the repair engine and builds the kits that run on your machine — the part that has to understand what your camera was doing when it stopped.</p>
+        </div>
+      </article>
+
+      <article class="member reveal">
+        <span class="member-mark mono" aria-hidden="true">S</span>
+        <div class="member-body">
+          <h3>Stanislav</h3>
+          <p class="member-role mono">Operator · Head of Operations</p>
+          <p class="member-line">Runs the queue: takes in the samples, works out which failure you are looking at, quotes the job, and answers your email himself.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COVERAGE ═══════════ -->
+<section class="sec" id="coverage">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Coverage</p>
+      <h2>The containers cameras actually write</h2>
+      <p class="sec-sub">MP4 and MOV from mirrorless and cinema cameras, MXF from broadcast and cinema bodies, the files phones, drones and action cameras leave behind, and the intermediate formats post-production runs on. If a camera or recorder wrote it, send it.</p>
+    </div>
+
+    <div class="fmt-grid">
+      <div class="fmt reveal">
+        <h3 class="fmt-h mono">Containers</h3>
+        <ul class="chips"><li>MP4</li><li>MOV</li><li>MXF</li><li>M4V</li><li>3GP</li><li>MTS / M2TS</li><li>AVI</li><li>MKV</li><li>WebM</li><li>MPG</li></ul>
+      </div>
+      <div class="fmt reveal">
+        <h3 class="fmt-h mono">Codecs</h3>
+        <ul class="chips"><li>H.264 / AVC</li><li>H.265 / HEVC</li><li>ProRes</li><li>ProRes RAW</li><li>DNxHD / DNxHR</li><li>XAVC / XAVC S</li><li>AVCHD</li><li>Cinema DNG</li><li>AV1</li><li>MJPEG</li></ul>
+      </div>
+      <div class="fmt reveal">
+        <h3 class="fmt-h mono">Sources &amp; media</h3>
+        <ul class="chips"><li>Mirrorless &amp; DSLR</li><li>Cinema cameras</li><li>Camcorders</li><li>Drones</li><li>Action cameras</li><li>Phones</li><li>External recorders</li><li>SD / CFexpress / CFast</li><li>USB-C SSD</li><li>Screen recordings</li></ul>
+      </div>
+    </div>
+
+    <div class="marquee reveal" aria-label="Camera brands whose files we work with">
+      <div class="marquee-track" id="marqueeTrack">
+        <span>Sony</span><span>Canon</span><span>Panasonic</span><span>Nikon</span><span>Fujifilm</span><span>RED</span><span>ARRI</span><span>DJI</span><span>GoPro</span><span>Atomos</span><span>iPhone</span><span>Insta360</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PRICING ═══════════ -->
+<section class="sec sec-alt" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Pricing</p>
+      <h2>One fixed quote for your clip, before you pay</h2>
+      <p class="sec-sub">The number depends on the resolution and the length of the clip. You get it after the free diagnosis and before anything is charged. There is no subscription and no diagnosis fee, and in the rare case a clip can't be repaired, the payment is refunded in full.</p>
+    </div>
+
+    <div class="price-grid">
+      <article class="plan reveal">
+        <h3>Single clip</h3>
+        <p class="plan-price"><span class="mono plan-from">from</span> $49</p>
+        <p class="plan-desc">One damaged clip, any camera, any codec. The exact price is set after the diagnosis, by resolution and duration.</p>
+        <ul class="ticks">
+          <li>Free diagnosis</li>
+          <li>Fixed quote for that clip</li>
+          <li>Repair runs on your machine</li>
+          <li>Support until the clip plays</li>
+        </ul>
+        <a class="btn btn-primary btn-wide" href="#diagnose">Start free diagnosis</a>
+      </article>
+
+      <article class="plan plan-feature reveal">
+        <span class="plan-flag mono">Most rescues</span>
+        <h3>Whole card</h3>
+        <p class="plan-price">Flat rate</p>
+        <p class="plan-desc">An entire card or SSD, or a whole offload folder, recovered in one pass. Quoted once we've seen the first sample.</p>
+        <ul class="ticks">
+          <li>Everything in Single clip</li>
+          <li>One price for the full card</li>
+          <li>Formatted and wiped media</li>
+          <li>Every clip on it, not just one</li>
+        </ul>
+        <a class="btn btn-primary btn-wide" href="#diagnose">Get a quote</a>
+      </article>
+
+      <article class="plan reveal">
+        <h3>Studio</h3>
+        <p class="plan-price">Talk to us</p>
+        <p class="plan-desc">For post houses and production companies that need this handled the same day, repeatedly, under contract.</p>
+        <ul class="ticks">
+          <li>Priority queue</li>
+          <li>NDA and a named engineer</li>
+          <li>Whole-shoot recoveries</li>
+          <li>Invoicing and PO numbers</li>
+        </ul>
+        <a class="btn btn-ghost btn-wide" href="#diagnose">Contact us</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ VOICES — PLACEHOLDER CONTENT ═══════════ -->
+<!-- These three quotes are placeholders. Replace with real, attributable customer
+     quotes before this page goes live — do not publish invented testimonials. -->
+<section class="sec" id="voices">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">From the field <span class="chip-todo">placeholder — add real quotes</span></p>
+      <h2>What people say once it plays again</h2>
+    </div>
+    <div class="quote-grid">
+      <blockquote class="quote reveal"><p>&ldquo;Real customer quote goes here — ideally naming the camera, the failure and how long the turnaround took.&rdquo;</p><footer><b>Name Surname</b><span>Role, Company</span></footer></blockquote>
+      <blockquote class="quote reveal"><p>&ldquo;A second quote here. The most persuasive ones describe the moment the file finally opened.&rdquo;</p><footer><b>Name Surname</b><span>Role, Company</span></footer></blockquote>
+      <blockquote class="quote reveal"><p>&ldquo;A third quote here. A studio or post house carries more weight than an individual shooter.&rdquo;</p><footer><b>Name Surname</b><span>Role, Company</span></footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DIAGNOSE ═══════════ -->
+<section class="sec sec-alt" id="diagnose">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Start here</p>
+      <h2>Show us the broken clip</h2>
+      <p class="sec-sub">Drop the file below. Antidote inspects the container in your browser — the file itself never leaves this page — and tells you straight away whether the frames are there and what's missing.</p>
+    </div>
+
+    <div class="drop-wrap reveal">
+      <label class="drop" id="drop" for="fileInput">
+        <input type="file" id="fileInput" class="sr-only" accept=".mp4,.mov,.mxf,.m4v,.3gp,.mts,.m2ts,.avi,.mkv,.webm,.mpg,.mpeg,video/*">
+        <svg class="drop-ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 32V12m0 0-7 7m7-7 7 7"/><path d="M9 30v5a4 4 0 0 0 4 4h22a4 4 0 0 0 4-4v-5"/></svg>
+        <span class="drop-title">Drop a video file here, or click to choose</span>
+        <span class="drop-sub mono">MP4 · MOV · MXF · AVI · MKV — read locally, nothing uploaded</span>
+      </label>
+
+      <div class="report" id="report" hidden>
+        <div class="report-head">
+          <p class="eyebrow">Local inspection</p>
+          <button class="link-btn" id="resetBtn" type="button">Inspect another file</button>
+        </div>
+        <dl class="report-rows mono" id="reportRows"></dl>
+        <p class="report-verdict" id="reportVerdict"></p>
+        <div class="report-cta">
+          <a class="btn btn-primary" id="mailBtn" href="#">Request free diagnosis</a>
+          <span class="report-note">Opens your mail app with the findings filled in. You choose what to send.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="sec" id="faq">
+  <div class="wrap faq-wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Questions</p>
+      <h2>The ones everybody asks</h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item reveal"><summary>Can I trust a repair service I found on the internet?</summary><div class="faq-a"><p>You shouldn't have to take our word for it. The diagnosis is free and comes back as a plain report — how many seconds survived, at what resolution and codec — with a fixed price for that clip. If the repair then can't be done — it happens about once in a hundred jobs — you get a full refund. You never pay for a maybe, and your footage never leaves your computer while you decide.</p></div></details>
+      <details class="faq-item reveal"><summary>Do I have to upload the whole clip?</summary><div class="faq-a"><p>No — and you never upload the clip at all. Antidote sends a sample of about two megabytes for the diagnosis, and the repair itself runs on your own computer against the original file. A long 4K take is tens of gigabytes; moving that over hotel Wi-Fi is exactly what we designed around.</p></div></details>
+      <details class="faq-item reveal"><summary>How long does it take?</summary><div class="faq-a"><p>Most requests are answered in minutes. Our stated turnaround is up to forty-eight hours, which covers unusual camera setups and failures that need an engineer to dig.</p></div></details>
+      <details class="faq-item reveal"><summary>What does it cost?</summary><div class="faq-a"><p>From $49 for a single clip, adjusted for resolution and duration. Whole cards and large batches are quoted at a flat rate. The diagnosis is free in every case, and the quote is fixed before you pay.</p></div></details>
+      <details class="faq-item reveal"><summary>When do I pay?</summary><div class="faq-a"><p>After the diagnosis and before the repair. Once you have the report and the quote, we send an invoice for exactly that amount; when it's paid, the repair runs on your machine and the clip is yours. Nothing is charged before you've seen the price, and nothing is charged if the clip can't be saved.</p></div></details>
+      <details class="faq-item reveal"><summary>Will I get the original file back, or a transcode?</summary><div class="faq-a"><p>The real thing. The repaired clip is the same container and codec at the original resolution and bit depth, with the camera metadata and audio intact — nothing re-encoded, nothing generated. It cuts and grades exactly like the take that didn't fail.</p></div></details>
+      <details class="faq-item reveal"><summary>What if it can't be repaired?</summary><div class="faq-a"><p>Then you get your money back, in full. It happens in about one job out of a hundred — the diagnosis catches almost everything before a quote is even sent — but some failures, like a card physically overwritten by the next day's shoot, genuinely have nothing left to recover. When that's the case we refund the payment and tell you exactly why.</p></div></details>
+      <details class="faq-item reveal"><summary>Which formats do you repair?</summary><div class="faq-a"><p>The containers cameras write — MP4, MOV, MXF, MTS, AVI, MKV and their relatives — carrying H.264, HEVC, ProRes, DNx, XAVC and most other production codecs. If yours isn't on the list, send the request anyway and say what it is: the diagnosis is free, and we'll tell you honestly whether we can help.</p></div></details>
+      <details class="faq-item reveal"><summary>Is my footage confidential?</summary><div class="faq-a"><p>It doesn't leave your computer. The repair runs locally on your original file; the engine that drives it runs on our servers and never receives your picture. The small diagnosis sample is deleted when the job closes, and we'll sign an NDA for productions that need one.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CLOSER ═══════════ -->
+<section class="closer">
+  <div class="wrap closer-inner reveal">
+    <h2>Bring us the clip everyone else told you was dead.</h2>
+    <div class="closer-cta">
+      <a class="btn btn-primary btn-lg" href="#diagnose">Diagnose my file — free</a>
+      <a class="btn btn-ghost btn-lg" href="#process">Read the process again</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="#top" aria-label="Antidote — home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <rect x="1" y="1" width="30" height="30" rx="7" class="bm-frame"/>
+          <rect x="16" y="6" width="10" height="20" rx="2" class="bm-solid"/>
+          <rect x="6.5" y="6" width="7" height="5" rx="1.5" class="bm-blk"/>
+          <rect x="8.5" y="13" width="7" height="5" rx="1.5" class="bm-blk"/>
+          <rect x="5" y="20" width="7" height="6" rx="1.5" class="bm-blk"/>
+        </svg>
+        <span class="brand-word">Antidote</span>
+      </a>
+      <p class="foot-tag">Video file repair for people who cannot go back and shoot it again.</p>
+      <!-- TODO: replace with Antidote's real contact address. -->
+      <a class="foot-mail mono" href="mailto:repair@your-domain.com">repair@your-domain.com</a>
+    </div>
+
+    <nav class="foot-col" aria-label="Service">
+      <h4 class="mono">Service</h4>
+      <a href="#process">How it works</a>
+      <a href="#coverage">Formats</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#diagnose">Free diagnosis</a>
+      <a href="#privacy">Confidentiality</a>
+    </nav>
+
+    <nav class="foot-col" aria-label="Company">
+      <h4 class="mono">Company</h4>
+      <a href="#failures">Failure modes</a>
+      <a href="#team">The team</a>
+      <a href="#faq">FAQ</a>
+      <a href="#voices">Customers</a>
+      <a href="mailto:repair@your-domain.com">Contact</a>
+    </nav>
+
+    <nav class="foot-col" aria-label="Legal">
+      <h4 class="mono">Legal</h4>
+      <a href="privacy.html">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Security</a>
+    </nav>
+  </div>
+  <div class="wrap foot-base mono">
+    <span>© <span id="year">2026</span> Antidote</span>
+    <span>Built for the worst morning of a shoot.</span>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
